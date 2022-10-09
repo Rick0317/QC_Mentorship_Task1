@@ -13,7 +13,7 @@ Due to these special properties of quantum computing, we can calculate certain p
 1, Shift-and-Add algorithm  
 This is basically the algorithm we use to do multiplication of two integers in elementary school.  
 We have Multiplicand, Multiplier, and Register. We multiply each digit of Multiplier to Multiplicand and store the result in Register.  
-![Shift and Add](https://github.com/Rick0317/QC_mentorship_task/blob/master/images/shift_add_algo.jpg)  
+![Shift and Add](https://github.com/Rick0317/QC_Mentorship_Task1/blob/master/images/shift_add_algo.jpg)  
 
 
 ## Algorithm
