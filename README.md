@@ -10,6 +10,11 @@ The difference is that the information represented by qubits are continuous, and
 Due to these special properties of quantum computing, we can calculate certain problems way faster than classical computers, which we call Quantum Supremacy.  Algorithm such as Deutsch Algorithm and Deutasch-Jozsa algorithm are proved to be calculated faster by quantum computing than by classical computing.  
 
 ### Integer Multiplication
+1, Shift-and-Add algorithm  
+This is basically the algorithm we use to do multiplication of two integers in elementary school.  
+We have Multiplicand, Multiplier, and Register. We multiply each digit of Multiplier to Multiplicand and store the result in Register.  
+![Shift and Add](https://github.com/Rick0317/QC_mentorship_task/blob/master/shift_add_algo.jpg)  
+
 
 ## Algorithm
 
