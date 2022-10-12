@@ -23,14 +23,26 @@ We have Multiplicand, Multiplier, and Register. We multiply each digit of Multip
 When I was implementing the integer multiplication quantum circuit, I did not refer to any past research. I later looked at the past papers and works and knew there exist better solutions. I will present my implementation and the implementation based on the past work  
 
 ### My implementation
+
 1, Encoding  
-The given integers will be encoded into quantum states using numpy and X_gate. 
+The given integers will be encoded into quantum states using numpy and X_gate.  
+Let a, b be the two integers. I encoded a-1 to the first set of registers and encoded b twice in the second and third set of registers.  
 
-2, qubit registers
+2, Quantum Circuit
+Now, the quantum states of the registers are prepared with the binary representations of a-1 and b.  
+QFT will be applied to the third set of registers (2nd b).  
+Next, b will be added to itself based on the binary representation of a-1 using our control gate.  
+The control gate adds phase based on b.  
+The formula is simple: b + (a-1) * b  
+After the addition part ends, inverse QFT will be added to the third set of registers (2nd b).  
+This enables us to measure the result.  
 
-3, Quantum Circuit
-
-4, 
+3, Disadvantage of this implementation
+At this point (10/9), the implementation does not take care of the phase properly, which basically means you do not get the result of multiplication directly. For example, if you do 4 times 5, you will get 4 which is 20 - 8*2 (8 represents one cycle of the phase)  
+However, we can estimate the result with certain possibility.  
+Let the output of the circuit be p.  
+In our case, if b is odd, we claim the result is (a-1) * 2^{ceil(log2(n))} + p
+if b is even, we claim if a < 
 
 ### Based on the past implementations
 
