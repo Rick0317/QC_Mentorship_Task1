@@ -1,5 +1,6 @@
 # QC_Mentorship_Task1
 Creating Quantum Circuit for Integer Multiplication 
+The work also can be seen from here (GoogleDocs)[https://docs.google.com/document/d/1AGYOtXuWy6AGSZnMSDDcjJylRU1vtpDijRHKxpIY6mk/edit?usp=sharing]
 
 ## Background
 ### Quantum Computing
@@ -16,7 +17,6 @@ Due to these special properties of quantum computing, we can calculate certain p
 1, Shift-and-Add algorithm  
 This is basically the algorithm we use to do multiplication of two integers in elementary school.  
 We have Multiplicand, Multiplier, and Register. We multiply each digit of Multiplier to Multiplicand and store the result in Register.  
-![Shift and Add](https://github.com/Rick0317/QC_Mentorship_Task1/blob/master/images/shift_add_algo.jpg)  
 
 
 ## Implementation
@@ -45,10 +45,12 @@ In our case, if b is odd, we claim the result is (a-1) * 2^{ceil(log2(n))} + p
 if b is even, we claim if a < 
 
 ### Based on the past implementations
+Based on the past paper, I implemented the circuit with QFT, controlled rotation gates, and inverse QFT.  
+The circuit has 2*(n_1 + n_2) number of qubits.
 
 
 ## Discussion
-
+One of the difficulty I found during creating the multiplication function is understanding what happens to the superposition states when we apply controlled rotation gates.  
 
 ## References
 [1] Addition on a Quantum Computer, Thomas G. Draper, 1998  
