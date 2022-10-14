@@ -11,6 +11,7 @@ The difference is that the information represented by qubits are continuous, and
 Due to these special properties of quantum computing, we can calculate certain problems way faster than classical computers, which we call Quantum Supremacy.  Algorithm such as Deutsch Algorithm and Deutasch-Jozsa algorithm are proved to be calculated faster by quantum computing than by classical computing.  
 
 ### Integer Multiplication
+Integer Multiplication can be decomposed into some Integer Additions.
 
 ## Algorithm
 
@@ -41,12 +42,35 @@ This enables us to measure the result.
 At this point (10/9), the implementation does not take care of the phase properly, which basically means you do not get the result of multiplication directly. For example, if you do 4 times 5, you will get 4 which is 20 - 8*2 (8 represents one cycle of the phase)  
 However, we can estimate the result with certain possibility.  
 Let the output of the circuit be p.  
-In our case, if b is odd, we claim the result is (a-1) * 2^{ceil(log2(n))} + p
-if b is even, we claim if a < 
+In our case, if b is odd, we claim the result is likely to be (a-1) * 2^{ceil(log2(n))} + p
+if b is even, we claim if a < b/2, the result is likely to be (a-1) * 2^{ceil(log2(n))} + p
+if z > b/2, the result is likely to be (a-2) * 2^{ceil(log2(n))} + p
 
 ### Based on the past implementations
 Based on the past paper, I implemented the circuit with QFT, controlled rotation gates, and inverse QFT.  
 The circuit has 2*(n_1 + n_2) number of qubits.
+
+Problems I faced:
+(1)How do we prepare the states |a> and |0> (How many registers I need, Should I implement in the superposition states)  
+(2)How do we prepare the controlled rotation gate  
+
+Solution to (1):  
+For |a>, I prepared the state with binary representation of a. 
+For |0>, I prepared the state with qubits1 + qubits2 number of registers
+
+Solution to (2):  
+The difficulty is how to add a to the superposition state which has different number of registers.
+My solution: rot_gate.cp(2・np.pi/2・・(qubits1 + qubits2-control -i-qubit), qubits2-1-control, qubits1+2*qubits2-1-qubit-i)
+did not work. 
+I tried many ways to implement the rotation gates but none of them works
+
+### Implementation that works
+the function multiply utilizes the implementation from [4].  
+
+It basically adds multiplicand to itself until multiplier becomes 0.  
+The registers were prepared as above implementations except for this implementation has one register used for subtracting 1 from the multiplier  
+
+
 
 
 ## Discussion
@@ -55,4 +79,5 @@ One of the difficulty I found during creating the multiplication function is und
 ## References
 [1] Addition on a Quantum Computer, Thomas G. Draper, 1998  
 [2] T-count Optimized Design of Quantum Integer Multiplication, Edgard Mu ˜noz-Coreas, Himanshu Thapliyal, 2017  
-[3] Quantum arithmetic with the Quantum Fourier Transform, Lidia Ruiz-Perez ∗1 and Juan Carlos Garcia-Escartin1, 2017  
+[3] Quantum arithmetic with the Quantum Fourier Transform, Lidia Ruiz-Perez ∗1 and Juan Carlos Garcia-Escartin1, 2017 
+[4] Arithmetic on Quantum Computers: Multiplication, Sashwat Anagolum, 2018 
