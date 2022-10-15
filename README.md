@@ -72,7 +72,8 @@ The registers were prepared as above implementations except for this implementat
 
 
 ## Discussion
-One of the difficulty I found during creating the multiplication function is understanding what happens to the superposition states when we apply controlled rotation gates.  
+One of the difficulty I found during creating the multiplication function is understanding what happens to the superposition states when we apply controlled rotation gates. To how many gates should I apply rotational gates or not was the problem I spent much time on.
+
 
 ## References
 [1] Addition on a Quantum Computer, Thomas G. Draper, 1998  
