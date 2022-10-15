@@ -71,8 +71,6 @@ It basically adds multiplicand to itself until multiplier becomes 0.
 The registers were prepared as above implementations except for this implementation has one register used for subtracting 1 from the multiplier  
 
 
-
-
 ## Discussion
 One of the difficulty I found during creating the multiplication function is understanding what happens to the superposition states when we apply controlled rotation gates.  
 
