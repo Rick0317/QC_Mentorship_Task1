@@ -78,5 +78,5 @@ One of the difficulty I found during creating the multiplication function is und
 ## References
 [1] Addition on a Quantum Computer, Thomas G. Draper, 1998  
 [2] T-count Optimized Design of Quantum Integer Multiplication, Edgard Mu ˜noz-Coreas, Himanshu Thapliyal, 2017  
-[3] Quantum arithmetic with the Quantum Fourier Transform, Lidia Ruiz-Perez ∗1 and Juan Carlos Garcia-Escartin1, 2017 
+[3] Quantum arithmetic with the Quantum Fourier Transform, Lidia Ruiz-Perez ∗1 and Juan Carlos Garcia-Escartin1, 2017   
 [4] Arithmetic on Quantum Computers: Multiplication, Sashwat Anagolum, 2018 
